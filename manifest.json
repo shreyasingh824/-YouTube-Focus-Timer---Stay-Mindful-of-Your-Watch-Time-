@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "🎯YouTube Focus Timer - Stay Mindful of Your Watch Time!  ",
+    "version": "1.0",
+    "description": "lightweight Chrome extension that helps you track how long you've been watching YouTube. It sends **progress notifications every 5 minutes**, ensuring you stay aware of your screen time.  ",
+    "icons": {
+        "16": "icon-16.png",
+        "48": "icon-48.png",
+        "128": "icon.png"
+    },
+    "permissions": [
+        "alarms",
+        "notifications",
+        "tabs"
+        
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/*",
+                "https://m.youtube.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
